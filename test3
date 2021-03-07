@@ -1,0 +1,28 @@
+package a;
+
+import java.util.Scanner;
+
+public class c {
+
+	public static void main(String[] args) {
+	//定义变量
+		int biscuitsNumber;
+		int boxNumber;
+		int biscuitsLeft;
+		int container;
+		int boxLeft;
+		Scanner scan=new Scanner(System.in);
+		System.out.println("请输入饼干的总数量");
+		biscuitsNumber=scan.nextInt();
+		boxNumber=biscuitsNumber/24;
+		biscuitsLeft=biscuitsNumber%24;
+		container=boxNumber/75;
+		boxLeft=boxNumber%75;
+		//输出结果
+		System.out.println("饼干盒数："+boxNumber);
+		System.out.println("饼干丢弃数量："+biscuitsLeft);
+		System.out.println("容器所需数量："+container);
+		System.out.println("盒子丢弃的数量："+boxLeft);
+	}
+
+}

@@ -1,0 +1,28 @@
+package a;
+
+import java.util.Scanner;
+
+public class d{
+	public static void main(String args[]) {
+		double managerRevenue,internetRevenue,songPrice;
+		int number;
+		String songTitle;
+		double allPrice;
+		double managerRate,internetRate;
+		managerRate=0.12f;
+		internetRate=0.03f;
+		Scanner scan=new Scanner(System.in);
+		System.out.println("输入歌曲名称:");
+		songTitle=scan.nextLine();
+		System.out.println("输入单价:");
+		songPrice=scan.nextDouble();
+		System.out.println("输入数量:");
+		number=scan.nextInt();
+		allPrice=songPrice*number;
+		managerRevenue=allPrice*managerRate;
+		internetRevenue=allPrice*internetRate;
+		System.out.println("总利润为:"+allPrice);
+		System.out.println("经理利润为:"+managerRevenue);
+		System.out.println("网站润为:"+internetRevenue);
+		}
+	}

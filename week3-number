@@ -1,0 +1,96 @@
+package week3;
+
+import java.util.Scanner;
+
+public class number {
+
+	public static void main(String[] args) {
+		int a, b;
+		Scanner scan = new Scanner(System.in);
+		System.out.println("请输入firstNumner:");
+		a = scan.nextInt();
+		System.out.println("请输入secondNumner:");
+		b = scan.nextInt();
+
+		int choose = menu();
+		while (choose != 5) {
+			switch (choose) {
+			case 1:
+				OddNumbers(a, b);
+				break;
+			case 2:
+				EvenNumbersAvg(a, b);
+				break;
+			case 3:
+				allnumbers(a, b);
+				break;
+			case 4:
+				OddSquares(a, b);
+				break;
+			default:
+				System.out.println("error!");
+			}
+			choose = menu();
+		}
+		System.out.println("over!");
+	}
+
+	public static int menu() {
+		int choose = 0;
+		System.out.println("1.输出2个数之间的所有奇数");
+		System.out.println("2.输出2个数之间所有偶数的和");
+		System.out.println("3.输出1到10之间的所有数字及其平方");
+		System.out.println("4.输出2个数之间所有奇数的平方和");
+		System.out.println("5.Exit");
+		System.out.println("please choice (1~5):");
+		Scanner scan = new Scanner(System.in);
+		choose = scan.nextInt();
+
+		return choose;
+	}
+
+	public static int OddNumbers(int a, int b) {
+		for (int i = a; i < b; i++) {
+			if (i % 2 != 0) {
+				System.out.println(+i);
+			}
+		}
+
+		return 0;
+	}
+
+	public static int EvenNumbersAvg(int a, int b) {
+
+		int all = 0;
+		for (int i = a; i < b; i++) {
+			if (i % 2 == 0) {
+				all += i;
+			}
+
+		}
+		System.out.println("和为：" + all);
+		return 0;
+	}
+
+	public static int allnumbers(int a, int b) {
+		for (int i = a; i < b; i++) {
+			System.out.println("数字为：" + i);
+			
+			System.out.println("平方为：" +Math.pow(i, 2));
+		}
+
+		return 0;
+	}
+
+	private static int OddSquares(int a, int b) {
+		int all = 0;
+		for (int i = a; i < b; i++) {
+			if (i % 2 != 0) {
+				all += i;
+			}
+		}
+		System.out.println("奇数的平方和为：" + all);
+		return 0;
+	}
+
+}

@@ -1,0 +1,102 @@
+package week3;
+
+import java.util.Scanner;
+
+public class cj {
+
+	public static void main(String[] args) {
+		float score[];
+		score=new float[5];
+		int choose=menu();
+
+		while(choose!=6){
+		switch(choose){
+			case 1:Input(score);break;
+			case 2:Average(score); break;
+			case 3:Max(score);break;
+			case 4:Min(score);break;
+			case 5:Paixu(score);break;
+			default:System.out.println("error!");
+		}
+		choose=menu();
+		}
+		System.out.println("over!");
+	}
+    public static int menu(){
+    int choose=0;
+    	System.out.println("1.Input");
+    	System.out.println("2.Average");
+    	System.out.println("3.Max");
+    	System.out.println("4.MIN");
+    	System.out.println("5.Paixu");
+    	System.out.println("6.Exit");
+    	System.out.println("please choice (1~5):");
+    	Scanner scan=new Scanner(System.in);
+        choose=scan.nextInt();
+    	
+    	
+    	return choose;
+    }
+    public static void Input(float score[]){
+  
+    	for(int i=0;i<score.length;i++){
+    		System.out.println("请输入成绩：");
+    		Scanner scan1=new Scanner(System.in);
+    		score[i]=scan1.nextFloat(); 
+    	}    
+    	System.out.println("over!");
+    	}
+    public static void Average(float score[]){
+    	float b=0,avg=0;
+    	for(int i=0;i<score.length;i++){
+
+    	b+=score[i];
+    	}
+
+		avg=(float)b/score.length;
+    	System.out.println("AVG="+avg);
+    	System.out.println("over!");
+    }
+    public static void Max(float score[]){
+    	float a=0;
+    	for(int i=0;i<score.length;i++){
+    		
+    		if(a<=score[i]){a=score[i];}
+    		
+    	}
+    	System.out.println("Max="+a);
+    	System.out.println("over!");
+    }
+    	
+    
+    public static void Min(float score[]){
+    int a=0;
+    	for(int i=0;i<score.length;i++){
+    		
+    		if(score[a]>=score[i])
+    		{a=i;}
+    		
+    	}
+    	System.out.println("Min="+score[a]);
+    	System.out.println("over!");
+    }
+    public static void Paixu(float score[]) {
+    
+    	float tem=0;
+    	for(int i=0;i<score.length;i++) {
+    	for(int j=i+1;j<score.length;j++){
+    		
+    		if(score[i]>=score[j])
+    		{   tem=score[i];
+    			score[i]=score[j];
+    			score[j]=tem;}
+    	
+    	}System.out.println(+score[i]);
+    	}
+    	System.out.println("over!");
+    }
+	
+    
+	}
+
+

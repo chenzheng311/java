@@ -28,27 +28,27 @@ public class Driver {
 	}
 	public static int menu() {
 		int choice=0;
-		System.out.println("»¶Ó­Ê¹ÓÃÒøĞĞÏµÍ³\n");
-		System.out.println("\t1.¿ª»§ create\n");
-		System.out.println("\t2.´æ¿î save\n");
-		System.out.println("\t3.È¡¿î withdraw\n");
-		System.out.println("\t4.Ïû·Ñ consume\n");
-		System.out.println("\t5.»¹¿î repay\n");
-		System.out.println("\t6.ÒøĞĞ½áËã settle\n");
-		System.out.println("\t7.²éÑ¯Óà¶î balance\n");
-		System.out.println("\t8.ÍË³ö exit\n");
-		System.out.println("\tÇëÑ¡Ôñ(1-8):\n");
+		System.out.println("æ¬¢è¿ä½¿ç”¨é“¶è¡Œç³»ç»Ÿ\n");
+		System.out.println("\t1.å¼€æˆ· create\n");
+		System.out.println("\t2.å­˜æ¬¾ save\n");
+		System.out.println("\t3.å–æ¬¾ withdraw\n");
+		System.out.println("\t4.æ¶ˆè´¹ consume\n");
+		System.out.println("\t5.è¿˜æ¬¾ repay\n");
+		System.out.println("\t6.é“¶è¡Œç»“ç®— settle\n");
+		System.out.println("\t7.æŸ¥è¯¢ä½™é¢ balance\n");
+		System.out.println("\t8.é€€å‡º exit\n");
+		System.out.println("\tè¯·é€‰æ‹©(1-8):\n");
 		Scanner scan1=new Scanner(System.in);
 		choice=scan1.nextInt();
 		return choice;
 	}
 	public static int submenu() {
 		int choice=0;
-		System.out.println("ÇëÑ¡Ôñ¿ª¿¨ÀàĞÍ");
-		System.out.println("\t1.ĞÅÓÃ¿¨ checkingAccount\n");
-		System.out.println("\t2.´æ´¢¿¨ savingAccount\n");
-		System.out.println("\t3.·µ»Ø exit\n");
-		System.out.println("ÇëÑ¡Ôñ(1-3):");
+		System.out.println("è¯·é€‰æ‹©å¼€å¡ç±»å‹");
+		System.out.println("\t1.ä¿¡ç”¨å¡ checkingAccount\n");
+		System.out.println("\t2.å­˜å‚¨å¡ savingAccount\n");
+		System.out.println("\t3.è¿”å› exit\n");
+		System.out.println("è¯·é€‰æ‹©(1-3):");
 		Scanner scan2=new Scanner(System.in);
 		choice=scan2.nextInt();
 		return choice;
@@ -68,13 +68,13 @@ public class Driver {
     }
 	public static void createCheckingAccount() {
 		Scanner scan=new Scanner(System.in);
-		System.out.println("ÇëÊäÈëÉí·İÖ¤ºÅ£º");
+		System.out.println("è¯·è¾“å…¥èº«ä»½è¯å·ï¼š");
 		String ssn=scan.next();
-		System.out.println("ÇëÊäÈëĞÕÃû£º");
+		System.out.println("è¯·è¾“å…¥å§“åï¼š");
 		String name=scan.next();
-		System.out.println("ÇëÊäÈë¿¨ºÅ£º");
+		System.out.println("è¯·è¾“å…¥å¡å·ï¼š");
 		String ca=scan.next();
-		System.out.println("ÇëÊäÈë·şÎñ·Ñ£º");
+		System.out.println("è¯·è¾“å…¥æœåŠ¡è´¹ï¼š");
 		Float fee=scan.nextFloat();
 		CheckingAccount ca1=new CheckingAccount(ca,0,fee);
 		
@@ -82,63 +82,63 @@ public class Driver {
 	}
 	public static void createSavingAccount() {
 		Scanner scan=new Scanner(System.in);
-		System.out.println("ÇëÊäÈëÉí·İÖ¤ºÅ£º");
+		System.out.println("è¯·è¾“å…¥èº«ä»½è¯å·ï¼š");
 		String ssn=scan.next();
-		System.out.println("ÇëÊäÈëĞÕÃû£º");
+		System.out.println("è¯·è¾“å…¥å§“åï¼š");
 		String name=scan.next();
-		System.out.println("ÇëÊäÈë¿¨ºÅ£º");
+		System.out.println("è¯·è¾“å…¥å¡å·ï¼š");
 		String ca=scan.next();
-		System.out.println("ÇëÊäÈëÀûÂÊ£º");
+		System.out.println("è¯·è¾“å…¥åˆ©ç‡ï¼š");
 		Float rate=scan.nextFloat();
 		SavingAccount sa1=new SavingAccount(ca,0,rate);
 		
-		customer=new Customer(ssn,name,sa1,null);
+		custome.setSa(sa1);
 	}
 	public static void save() {
 		if(customer.getSa()==null) {
-			System.out.println("ÇëÏÈ¿ª»§£¡");
+			System.out.println("è¯·å…ˆå¼€æˆ·ï¼");
 			return;
 		}
 		float money;
-		System.out.println("ÇëÊäÈë´æ¿î½ğ¶î£º");
+		System.out.println("è¯·è¾“å…¥å­˜æ¬¾é‡‘é¢ï¼š");
 		Scanner scan3=new Scanner(System.in);
 		money=scan3.nextFloat();
 		float m=customer.getSa().getBalance();
 	    m=m+money;
 	    customer.getSa().setBalance(m);
-		System.out.println("ÄúµÄµ±Ç°Óà¶îÎª£º"+customer.getSa().getBalance());
+		System.out.println("æ‚¨çš„å½“å‰ä½™é¢ä¸ºï¼š"+customer.getSa().getBalance());
 		
 	}
 	public static void withdraw() {
 		if(customer.getSa()==null) {
-			System.out.println("ÇëÏÈ¿ª»§£¡");
+			System.out.println("è¯·å…ˆå¼€æˆ·ï¼");
 			return;
 		}
 		float money;
-		System.out.println("ÇëÊäÈëÈ¡¿î½ğ¶î£º");
+		System.out.println("è¯·è¾“å…¥å–æ¬¾é‡‘é¢ï¼š");
 		Scanner scan4=new Scanner(System.in);
 		money=scan4.nextFloat();
 		if(money>customer.getSa().getBalance()) {
-			System.out.println("ÄúÈ¡µÄ½ğ¶î´óÓÚÄãµÄ´æ¿î½ğ¶î£¬ÇëÖØÊÔ£¡");
+			System.out.println("æ‚¨å–çš„é‡‘é¢å¤§äºä½ çš„å­˜æ¬¾é‡‘é¢ï¼Œè¯·é‡è¯•ï¼");
 			return ;
 		}
 	    float m=customer.getSa().getBalance();
 	    m=m-money;
 	    customer.getSa().setBalance(m);
-	    System.out.println("ÄúµÄµ±Ç°Óà¶îÎª£º"+customer.getSa().getBalance());
+	    System.out.println("æ‚¨çš„å½“å‰ä½™é¢ä¸ºï¼š"+customer.getSa().getBalance());
 	}
 	
 	public static void consume() {
 		if(customer.getCa()==null) {
-			System.out.println("ÇëÏÈ¿ª»§£¡");
+			System.out.println("è¯·å…ˆå¼€æˆ·ï¼");
 			return;
 		}
 		float money;
-		System.out.println("ÄúÏû·Ñ½ğ¶îÎª£º");
+		System.out.println("æ‚¨æ¶ˆè´¹é‡‘é¢ä¸ºï¼š");
 		Scanner scan4=new Scanner(System.in);
 		money=scan4.nextFloat();
 		if(money+(-customer.getCa().getBalance())>10000) {
-			System.out.println("ÄúÏû·ÑµÄ½ğ¶î´óÓÚÄúµÄĞÅÓÃ¿¨¶î¶È£¬ÇëÖØÊÔ£¡");
+			System.out.println("æ‚¨æ¶ˆè´¹çš„é‡‘é¢å¤§äºæ‚¨çš„ä¿¡ç”¨å¡é¢åº¦ï¼Œè¯·é‡è¯•ï¼");
 			return ;
 		}
 	    float m=customer.getCa().getBalance();
@@ -148,16 +148,16 @@ public class Driver {
 	}
 	public static void repay() {
 		if(customer.getCa()==null) {
-			System.out.println("ÇëÏÈ¿ª»§£¡");
+			System.out.println("è¯·å…ˆå¼€æˆ·ï¼");
 			return;
 		}
 		float money;
-		System.out.println("ÄúĞèÒª»¹¿îµÄ½ğ¶îÎª£º"+customer.getCa().getBalance());
-		System.out.println("ÇëÊäÈëÄúÒª»¹¿îµÄµÄ½ğ¶î:");
+		System.out.println("æ‚¨éœ€è¦è¿˜æ¬¾çš„é‡‘é¢ä¸ºï¼š"+customer.getCa().getBalance());
+		System.out.println("è¯·è¾“å…¥æ‚¨è¦è¿˜æ¬¾çš„çš„é‡‘é¢:");
 		Scanner scan5=new Scanner(System.in);
 		money=scan5.nextFloat();
 		if(money-(-customer.getCa().getBalance())>0) {
-			System.out.println("Äú»¹¿îµÄ½ğ¶î´óÓÚÄãÍ¸Ö§µÄ·ÑÓÃ£¡ÇëÖØÊÔ£¡");
+			System.out.println("æ‚¨è¿˜æ¬¾çš„é‡‘é¢å¤§äºä½ é€æ”¯çš„è´¹ç”¨ï¼è¯·é‡è¯•ï¼");
 			return;
 		}
 	    float m=customer.getCa().getBalance();
@@ -168,29 +168,29 @@ public class Driver {
 	}
 	public static void settle() {
 		if(customer.getCa()==null) {
-			System.out.println("ÄúÔİÎ´¿ªÍ¨ĞÅÓÃ¿¨£¡");
+			System.out.println("æ‚¨æš‚æœªå¼€é€šä¿¡ç”¨å¡ï¼");
 		}else {
 		customer.getCa().updateBalance();
-		System.out.println("ĞÅÓÃ¿¨·şÎñ·Ñ½áËã³É¹¦£¡"+customer.getCa().getBalance());
+		System.out.println("ä¿¡ç”¨å¡æœåŠ¡è´¹ç»“ç®—æˆåŠŸï¼"+customer.getCa().getBalance());
 		}
 		if(customer.getSa()==null) {
-			System.out.println("ÄúÔİÎ´¿ªÍ¨´æ´¢¿¨£¡");
+			System.out.println("æ‚¨æš‚æœªå¼€é€šå­˜å‚¨å¡ï¼");
 		}else {
 		customer.getSa().updateBalance();
-		System.out.println("´æ´¢¿¨ÀûÂÊ½áËã³É¹¦£¡"+customer.getSa().getBalance());
+		System.out.println("å­˜å‚¨å¡åˆ©ç‡ç»“ç®—æˆåŠŸï¼"+customer.getSa().getBalance());
 		}
 	}
 	public static void balance() {
 		if(customer.getCa()==null) {
-			System.out.println("ÄúÔİÎ´¿ªÍ¨ĞÅÓÃ¿¨£¡");
+			System.out.println("æ‚¨æš‚æœªå¼€é€šä¿¡ç”¨å¡ï¼");
 		}else {
-		System.out.println("ÄúĞÅÓÃ¿¨µ±Ç°Í¸Ö§Óà¶îÎª£º"+customer.getCa().getBalance());
+		System.out.println("æ‚¨ä¿¡ç”¨å¡å½“å‰é€æ”¯ä½™é¢ä¸ºï¼š"+customer.getCa().getBalance());
 		}
 		if(customer.getSa()==null) {
-			System.out.println("ÄúÔİÎ´¿ªÍ¨´æ´¢¿¨£¡");
+			System.out.println("æ‚¨æš‚æœªå¼€é€šå­˜å‚¨å¡ï¼");
 		}else {
 		customer.getSa().updateBalance();
-		System.out.println("Äú´æ´¢¿¨µ±Ç°Óà¶îÎª£º"+customer.getSa().getBalance());
+		System.out.println("æ‚¨å­˜å‚¨å¡å½“å‰ä½™é¢ä¸ºï¼š"+customer.getSa().getBalance());
 		}
 	}
 	public static void exit() {

@@ -3,117 +3,129 @@ package week7work;
 import java.util.Scanner;
 
 public class SubjectEnrolmentDriver {
-	public static SubjectEnrolment sub=null;
+	public static SubjectEnrolment sub = null;
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int choice;
-		choice=menu();
-		while(choice>0)
-		{
-			switch(choice)
-			{
-			case 1:creatSubject();break;
-			case 2:creatStudent();break;
-			case 3:withdraw();break;
-			case 4:print();break;
-			case 5:exit();break;
-			default:System.out.println("ÊäÈëÓĞÎó£¬ÇëÖØĞÂÑ¡Ôñ£¡");
+		choice = menu();
+		while (choice != 5) {
+			switch (choice) {
+			case 1:
+				creatSubject();
+				break;
+			case 2:
+				creatStudent();
+				break;
+			case 3:
+				withdraw();
+				break;
+			case 4:
+				print();
+				break;
+			case 5:
+				exit();
+				break;
+			default:
+				System.out.println("è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°é€‰æ‹©ï¼");
 			}
-			
-			choice=menu();
+
+			choice = menu();
 		}
-		
-}
-	public static int menu(){
+
+	}
+
+	public static int menu() {
 		int choice;
-		System.out.println("=======WTUÑ¡¿ÎÏµÍ³=======");
-		System.out.println("1.´´½¨ĞÂ¿Î³Ì");
-		System.out.println("2.Ñ¡¿Î");
-		System.out.println("3.ÍËÑ¡");
-		System.out.println("4.´òÓ¡Ãûµ¥");
-		System.out.println("5.ÍË³ö");
-		System.out.println("ÇëÑ¡Ôñ(1~5):");
-		Scanner scan=new Scanner(System.in);
-		choice=scan.nextInt();
+		System.out.println("=======WTUé€‰è¯¾ç³»ç»Ÿ=======");
+		System.out.println("1.åˆ›å»ºæ–°è¯¾ç¨‹");
+		System.out.println("2.é€‰è¯¾");
+		System.out.println("3.é€€é€‰");
+		System.out.println("4.æ‰“å°åå•");
+		System.out.println("5.é€€å‡º");
+		System.out.println("è¯·é€‰æ‹©(1~5):");
+		Scanner scan = new Scanner(System.in);
+		choice = scan.nextInt();
 		return choice;
 	}
-	public static void creatSubject(){
-		String id,name;
+
+	public static void creatSubject() {
+		String id, name;
 		int a;
-		Scanner scan1=new Scanner(System.in); 
-		System.out.println("ÇëÊäÈëÄúÏë´´½¨µÄ¿Î³Ìid£º");
-		id=scan1.next();
-		System.out.println("ÇëÊäÈë¿Î³ÌÃû³Æ£º");
-		name=scan1.next();
-		System.out.println("ÇëÊäÈë×î´óÈËÊı£º");
-		a=scan1.nextInt();
-		 sub=new SubjectEnrolment(id,name,a,a);
-		System.out.println("¿Î³Ì´´½¨³É¹¦£¬ĞÅÏ¢ÈçÏÂ£º\n");
+		Scanner scan1 = new Scanner(System.in);
+		System.out.println("è¯·è¾“å…¥æ‚¨æƒ³åˆ›å»ºçš„è¯¾ç¨‹idï¼š");
+		id = scan1.next();
+		System.out.println("è¯·è¾“å…¥è¯¾ç¨‹åç§°ï¼š");
+		name = scan1.next();
+		System.out.println("è¯·è¾“å…¥æœ€å¤§äººæ•°ï¼š");
+		a = scan1.nextInt();
+		sub = new SubjectEnrolment(id, name, a, a);
+		System.out.println("è¯¾ç¨‹åˆ›å»ºæˆåŠŸï¼Œä¿¡æ¯å¦‚ä¸‹ï¼š\n");
 		System.out.println(sub.toString());
-		
+
 	}
-	public static void creatStudent(){
-		if(sub==null) {
-			System.out.println("ÇëÏÈÑ¡¿Î£¡");
-			return ;
-		}
-		if(sub.getindex()+1>sub.getNum()) {
-			System.out.println("Ñ¡¿ÎÈËÊıÒÑÂú£¡");
+
+	public static void creatStudent() {
+		if (sub == null) {
+			System.out.println("è¯·å…ˆåˆ›å»ºæ–°è¯¾ç¨‹ï¼");
 			return;
 		}
-		String id,name;
-		Scanner scan2=new Scanner(System.in);
-		System.out.println("ÇëÊäÈëÑ¡¿ÎÑ§ÉúµÄid:");
-		id=scan2.next();
-		System.out.println("ÇëÊäÈëÑ¡¿ÎÑ§ÉúµÄĞÕÃû£º");
-		name=scan2.next();
-		
-		Student a=new Student(id,name);
-		
-		System.out.println(sub.count);
-		System.out.println(sub.getindex());
-		
-		sub.add(a);
-		System.out.println("¹§Ï²Äã£¬Ñ¡¿Î³É¹¦£¡");
-		System.out.println("Ä¿Ç°Ñ¡¿ÎÇé¿öÈçÏÂ£º");
-		System.out.println(sub.toString());
-		System.out.println("Ñ¡¿ÎÈËÊı£º"+sub.getindex());
-		System.out.println("\tÑ§ºÅ"+"\tĞÕÃû");
-		sub.bianli();	
-	}
-	public static void withdraw() {
-		if(sub==null) {
-			System.out.println("ÇëÏÈÑ¡¿Î£¡");
-			return ;
+		if (sub.getindex() + 1 > sub.getNum()) {
+			System.out.println("é€‰è¯¾äººæ•°å·²æ»¡ï¼");
+			return;
 		}
-		Scanner scan4=new Scanner(System.in);
+		String id, name;
+		Scanner scan2 = new Scanner(System.in);
+		System.out.println("è¯·è¾“å…¥é€‰è¯¾å­¦ç”Ÿçš„id:");
+		id = scan2.next();
+		System.out.println("è¯·è¾“å…¥é€‰è¯¾å­¦ç”Ÿçš„å§“åï¼š");
+		name = scan2.next();
+		Student a = new Student(id, name);
+		sub.add(a);
+		System.out.println("æ­å–œä½ ï¼Œé€‰è¯¾æˆåŠŸï¼");
+		System.out.println("ç›®å‰é€‰è¯¾æƒ…å†µå¦‚ä¸‹ï¼š");
+		System.out.println(sub.toString());
+		System.out.println("é€‰è¯¾äººæ•°ï¼š" + sub.getindex());
+		System.out.println("\tå­¦å·" + "\tå§“å");
+		sub.bianli();
+	}
+
+	public static void withdraw() {
+		if (sub == null) {
+			System.out.println("è¯·å…ˆé€‰è¯¾ï¼");
+			return;
+		}
+		Scanner scan4 = new Scanner(System.in);
 		String id;
 		System.out.println(sub.count);
-		System.out.println("ÇëÊäÈëÍËÑ¡Ñ§ÉúµÄid:");
-		id=scan4.next();
-		System.out.println(sub.search(id));
-		sub.remove(sub.search(id));
-		
-		System.out.println("ÍËÑ¡³É¹¦£¡ĞÂµÄÑ¡¿ÎĞÅÏ¢ÈçÏÂ:");
-		System.out.println(sub.toString());
-		System.out.println("Ñ¡¿ÎÈËÊı:"+sub.getindex());
-		System.out.println("\tÑ§ºÅ"+"\tĞÕÃû");
-		sub.bianli();
-	}
-	public static void print() {
-		if(sub==null) {
-			System.out.println("ÇëÏÈÑ¡¿Î£¡");
-			return ;
+		System.out.println("è¯·è¾“å…¥é€€é€‰å­¦ç”Ÿçš„id:");
+		id = scan4.next();
+		if(sub.search(id)<0) {
+			return;
 		}
-		System.out.println("Ñ¡¿ÎĞÅÏ¢ÈçÏÂ:");
+		sub.remove(sub.search(id));
+
+		System.out.println("é€€é€‰æˆåŠŸï¼æ–°çš„é€‰è¯¾ä¿¡æ¯å¦‚ä¸‹:");
 		System.out.println(sub.toString());
-		System.out.println("Ñ¡¿ÎÈËÊı:"+sub.getindex());
-		System.out.println("\tÑ§ºÅ"+"\tĞÕÃû");
+		System.out.println("é€‰è¯¾äººæ•°:" + sub.getindex());
+		System.out.println("\tå­¦å·" + "\tå§“å");
 		sub.bianli();
 	}
+
+	public static void print() {
+		if (sub == null) {
+			System.out.println("è¯·å…ˆé€‰è¯¾ï¼");
+			return;
+		}
+		System.out.println("é€‰è¯¾ä¿¡æ¯å¦‚ä¸‹:");
+		System.out.println(sub.toString());
+		System.out.println("é€‰è¯¾äººæ•°:" + sub.getindex());
+		System.out.println("\tå­¦å·" + "\tå§“å");
+		sub.bianli();
+	}
+
 	public static void exit() {
 		return;
 	}
-	
 
 }
